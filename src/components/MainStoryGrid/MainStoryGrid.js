@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 
 import {
   MAIN_STORY,
@@ -12,6 +12,7 @@ import MainStory from '../MainStory';
 import SecondaryStory from '../SecondaryStory';
 import OpinionStory from '../OpinionStory';
 import Advertisement from '../Advertisement';
+import { QUERIES } from '../../constants';
 
 const MainStoryGrid = () => {
   return (
@@ -30,7 +31,7 @@ const MainStoryGrid = () => {
 
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
-        <StoryList>
+        <StoryList isRowOnTablet>
           {OPINION_STORIES.map((story, index) => (
             // TODO: Remove borders and adjust positioning in tablet
             <OpinionStory key={story.id} {...story} />
@@ -74,6 +75,19 @@ const StoryList = styled.div`
     padding-block: 16px;
     background-color: var(--color-gray-100);
   }
+
+  ${({ isRowOnTablet }) => isRowOnTablet && css`
+    @media ${QUERIES.tabletOnly} {
+      flex-direction: row;
+      gap: 32px;
+      background-color: transparent;
+
+      & > * {
+        flex: 1;
+        padding-block: 0;
+      }
+    }
+  `}
 `;
 
 const OpinionSection = styled.section`

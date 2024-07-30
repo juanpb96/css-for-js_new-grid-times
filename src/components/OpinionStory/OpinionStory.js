@@ -23,6 +23,11 @@ const Wrapper = styled.article`
   justify-content: space-between;
   gap: 32px;
 
+  @media ${QUERIES.tabletOnly} {
+    flex-direction: column;
+    gap: 8px;
+  }
+
   @media ${QUERIES.laptopAndUp} {
     gap: 48px;
   }
