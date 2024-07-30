@@ -32,6 +32,7 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
+            // TODO: Remove borders and adjust positioning in tablet
             <OpinionStory key={story.id} {...story} />
           ))}
         </StoryList>
@@ -66,6 +67,13 @@ const SecondaryStorySection = styled.section`
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1px;
+  background-color: var(--color-gray-300);
+
+  & > * {
+    padding-block: 16px;
+    background-color: var(--color-gray-100);
+  }
 `;
 
 const OpinionSection = styled.section`
