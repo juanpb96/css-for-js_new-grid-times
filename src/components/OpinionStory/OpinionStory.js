@@ -29,7 +29,7 @@ const Wrapper = styled.article`
   }
 
   @media ${QUERIES.laptopAndUp} {
-    gap: 48px;
+    gap: 16px;
   }
 `;
 
