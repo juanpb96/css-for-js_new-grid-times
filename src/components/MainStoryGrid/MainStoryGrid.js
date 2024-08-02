@@ -60,7 +60,7 @@ const Wrapper = styled.div`
   gap: 48px;
   margin-bottom: 48px;
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.tabletOnly} {
     --main-story-width: calc(518px + var(--story-side-space));
 
     grid-template-areas: 
@@ -84,6 +84,7 @@ const Wrapper = styled.div`
       'main-story secondary-stories opinion-stories'
       'main-story advertisement advertisement';
     grid-template-columns: var(--main-story-width) var(--secondary-story-width) 1fr;
+    gap: 0;
   }
 `;
 
@@ -92,6 +93,10 @@ const MainStorySection = styled.section`
 
   @media ${QUERIES.tabletAndUp} {
     padding-right: var(--side-padding);
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    border-right: 1px solid var(--color-gray-300);
   }
 `;
 
@@ -104,6 +109,7 @@ const SecondaryStorySection = styled.section`
 
   @media ${QUERIES.laptopAndUp} {
     padding-inline: var(--side-padding);
+    border-right: 1px solid var(--color-gray-300);
   }
 `;
 
@@ -162,8 +168,12 @@ const AdvertisementSection = styled.section`
   }
 
   @media ${QUERIES.laptopAndUp} {
-    padding-top: var(--side-padding);
-    padding-left: var(--side-padding);
+    --spacing: var(--side-padding);
+
+    margin-top: var(--spacing);
+    margin-left: var(--spacing);
+    border-top: 1px solid var(--color-gray-300);
+    padding-top: var(--spacing);
   }
 `;
 
